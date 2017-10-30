@@ -8,18 +8,13 @@ import java.io.InputStreamReader;
 
 public class Task107 implements Command {
 
-
-    public void doTask_107() throws IOException {
+    private int ex_107() throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Please enter the number: ");
-        int number = Integer.parseInt(bf.readLine());
-        System.out.println(ex_107(number));
-    }
+        int m = Integer.parseInt(bf.readLine());
 
-
-    private int ex_107(int m) {
         if (m < 1) {
-            System.out.println(("m < 1"));
+            System.err.println(("Input value is < 1, please enter a higher value."));
         }
 
         int k = 1;
@@ -33,7 +28,7 @@ public class Task107 implements Command {
     @Override
     public void execute() {
         try {
-            doTask_107();
+            System.out.println(ex_107());
         } catch (IOException e) {
             System.err.println("Bad input");
             e.printStackTrace();
