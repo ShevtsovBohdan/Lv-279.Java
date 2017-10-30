@@ -24,31 +24,30 @@ public class Task561 implements Command {
     }
 
     private static ArrayList<Long> findAutomorphicNumbers(Integer number) {
-
-        boolean test = true;
+        List<Long> automorphicNumbersList = new ArrayList<>();
         List<Long> resultList = new ArrayList<>();
-        resultList.add(0l);
-        resultList.add(1l);
-        resultList.add(5l);
-        resultList.add(6l);
-        if (resultList.get(resultList.size() - 1) > number) {
+        automorphicNumbersList.add(0l);
+        automorphicNumbersList.add(1l);
+        automorphicNumbersList.add(5l);
+        automorphicNumbersList.add(6l);
+        if (automorphicNumbersList.get(automorphicNumbersList.size() - 1) >= number) {
             int i = 0;
-            while (resultList.get(i) < number) {
-                resultList.add(resultList.get(i++));
+            while (automorphicNumbersList.get(i) <= number) {
+                resultList.add(automorphicNumbersList.get(i++));
             }
             return (ArrayList<Long>) resultList;
         } else {
             int k = 2;
             label:
-            while (resultList.get(resultList.size() - 1) < number) {
+            while (automorphicNumbersList.get(automorphicNumbersList.size() - 1) < number) {
                 for (int i = 1; i < 10; i++) {
                     StringBuilder builder = new StringBuilder();
                     builder.append(i);
-                    builder.append(resultList.get(k));
+                    builder.append(automorphicNumbersList.get(k));
                     Long testNumber = Long.parseLong(builder.toString());
                     String square = Long.toString(testNumber * testNumber);
                     if (square.endsWith(builder.toString())) {
-                        resultList.add(Long.parseLong(builder.toString()));
+                        automorphicNumbersList.add(Long.parseLong(builder.toString()));
                     }
                 }
 
@@ -56,22 +55,22 @@ public class Task561 implements Command {
                     StringBuilder builder = new StringBuilder();
                     builder.append(i);
                     builder.append(0);
-                    builder.append(resultList.get(k));
+                    builder.append(automorphicNumbersList.get(k));
                     Long testNumber = Long.parseLong(builder.toString());
                     String square = Long.toString(testNumber * testNumber);
                     if (square.endsWith(builder.toString())) {
-                        resultList.add(Long.parseLong(builder.toString()));
+                        automorphicNumbersList.add(Long.parseLong(builder.toString()));
                     }
                 }
 
-                resultList.sort(new ResultListComparator());
+                automorphicNumbersList.sort(new ResultListComparator());
                 k++;
             }
 
         }
-        resultList.remove(resultList.size() - 1);
+        automorphicNumbersList.remove(automorphicNumbersList.size() - 1);
 
-        return (ArrayList<Long>) resultList;
+        return (ArrayList<Long>) automorphicNumbersList;
     }
 
 }

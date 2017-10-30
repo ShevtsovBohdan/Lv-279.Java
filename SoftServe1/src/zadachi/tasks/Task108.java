@@ -28,6 +28,10 @@ public class Task108 implements Command {
         double foundLog = Math.log(number) / Math.log(2);
         int roundToMax = (int) Math.ceil(foundLog);
 
+        if(number == Math.pow(2, roundToMax)){
+            roundToMax++;
+        }
+
         return (int) (Math.pow(2, roundToMax));
     }
 

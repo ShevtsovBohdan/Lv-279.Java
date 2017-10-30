@@ -25,7 +25,9 @@ public class Task325 implements Command {
     }
 
     private static ArrayList<Integer> findDividersOfTheNumber(Integer number) {
-
+        if (number == 0){
+            return null;
+        }
         List<Integer> resultList = new ArrayList<>();
 
         List<Integer> dividers;
