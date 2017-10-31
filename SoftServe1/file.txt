@@ -3,5 +3,7 @@ Nazar
 Orest - do sport.
 Oleg - judo,football
 Orest2
+hobby_orest2=football
 Bohdan
 I'm fond of playing basketball(Bohdan)
+Oleg
