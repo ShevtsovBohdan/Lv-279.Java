@@ -6,4 +6,3 @@ Orest2
 hobby_orest2=football
 Bohdan
 I'm fond of playing basketball(Bohdan)
-Oleg
