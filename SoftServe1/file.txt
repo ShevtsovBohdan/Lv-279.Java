@@ -7,5 +7,5 @@ hobby_orest2=football
 Bohdan 
 Rostyslav - powerlifting
 I'm fond of playing basketball(Bohdan)
-
+Tim - just new branch with my hobbies 
 
