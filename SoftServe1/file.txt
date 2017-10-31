@@ -1,13 +1,11 @@
 Andrii - basketball, cycling, drawing, athletics
-Nazar
+Nazar - collecting coints
 Orest - do sport.
 Oleg - judo,football
 Orest2
 hobby_orest2=football
-Bohdan
-
+Bohdan 
 I'm fond of playing basketball(Bohdan)
-
 Oleg
-Collecting coints(Nazar)
+
 
