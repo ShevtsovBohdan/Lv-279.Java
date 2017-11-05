@@ -30,7 +30,7 @@ public class Task555 implements Command {
 				System.out.print("\t");
 
 			for (int j = 0; j <= i; j++) {
-				int r = factorial(i) / (factorial(j) * factorial(i - j));
+				int r = (int)(factorial(i) / (factorial(j) * factorial(i - j)));
 				System.out.print(r + "\t\t");
 			}
 
@@ -42,8 +42,8 @@ public class Task555 implements Command {
 
 	}
 	
-	private int factorial(int n) {
-		int res = 1;
+	private long factorial(int n) {
+		long res = 1;
 		for(int i=2; i<=n; i++) res*=i;
 		return res;
 	}

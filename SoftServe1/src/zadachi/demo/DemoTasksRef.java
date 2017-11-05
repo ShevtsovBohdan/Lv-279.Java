@@ -12,8 +12,7 @@ import zadachi.classutils.ClassUtil;
 
 public class DemoTasksRef {
 
-	public static void main(String[] args)
-			throws ClassNotFoundException, IOException, InstantiationException, IllegalAccessException {
+	public static void main(String[] args) {
 
 		Class<?>[] classes = ClassUtil.getClasses("zadachi");
 		Map<String, Command> commands = new HashMap<>();
@@ -23,7 +22,11 @@ public class DemoTasksRef {
 			for (AnnotatedType at : cls.getAnnotatedInterfaces()) {
 				if (at.getType().toString().contains("zadachi.Command")) {
 					namesList.add(cls.getSimpleName());
-					commands.put(cls.getSimpleName().toLowerCase(), (Command) cls.newInstance());
+					try {
+						commands.put(cls.getSimpleName().toLowerCase(), (Command) cls.newInstance());
+					} catch (InstantiationException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
@@ -34,13 +37,17 @@ public class DemoTasksRef {
 		do {
 			
 			String taskName = menu(namesList);
-			
-			cmd = commands.get(taskName.toLowerCase());
 
 			if (taskName.equalsIgnoreCase("exit"))
 				break;
 
-			if (cmd != null) cmd.execute();
+			cmd = commands.get(taskName.toLowerCase());
+
+			if (cmd != null){
+				cmd.execute();
+			} else {
+				System.err.println("You have made a mistake in your task's name. Please try again.");
+			}
 
 		} while (true);
 

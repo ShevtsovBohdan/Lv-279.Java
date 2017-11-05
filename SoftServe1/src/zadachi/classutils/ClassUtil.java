@@ -12,17 +12,23 @@ public class ClassUtil {
 	/** Returns array of classes form package 'packageName'
 	 * @return array of classes form package
 	 * @param packageName - which package you want to scan
-	 * @throws ClassNotFoundException 
-	 * @throws IOException*/
-	public static Class<?>[] getClasses(String packageName) throws IOException, ClassNotFoundException {
+	 * */
+	public static Class<?>[] getClasses(String packageName) {
 
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
-		assert classLoader != null;
+		if (classLoader == null) return null;
 
 		String path = packageName.replace('.', '/');
 
-		Enumeration<URL> resources = classLoader.getResources(path);
+		Enumeration<URL> resources = null;
+		try {
+			resources = classLoader.getResources(path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		if (resources == null) return null;
 
 		List<File> dirs = new ArrayList<>();
 
@@ -41,7 +47,7 @@ public class ClassUtil {
 
 	}
 
-	private static List<Class<?>> findClasses(File directory, String packageName) throws ClassNotFoundException {
+	private static List<Class<?>> findClasses(File directory, String packageName) {
 
 		List<Class<?>> classes = new ArrayList<>();
 
@@ -51,14 +57,20 @@ public class ClassUtil {
 
 		File[] files = directory.listFiles();
 
+		if (files == null) return classes;
+
 		for (File file : files) {
 
 			if (file.isDirectory()) {
 				assert !file.getName().contains(".");
 				classes.addAll(findClasses(file, packageName + "." + file.getName()));
 			} else if (file.getName().endsWith(".class")) {
-				classes.add(
-						Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
+				try {
+					classes.add(
+                            Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return classes;
