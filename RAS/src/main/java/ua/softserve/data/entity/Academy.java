@@ -195,14 +195,14 @@ public class Academy {
     public String toString() {
         return "Academy{" +
                 "academy_id=" + academy_id +
-                ", citySet=" + city_id +
-                ", directionsSet=" + directionsSet +
-                ", technologiesSet=" + technologiesSet +
-                ", academy_stagesSet=" + academy_stagesSet +
+                ", city_id=" + city_id.getCity_id() +
+                ", directionsSet=" + directionsSet.getName() +
+                ", technologiesSet=" + technologiesSet.getName() +
+                ", academy_stagesSet=" + academy_stagesSet.getName() +
                 ", crm_group=" + crm_group +
                 ", name='" + name + '\'' +
-                ", start_date=" + start_date +
-                ", end_date=" + end_date +
+                ", start_date=" + start_date.toLocalDateTime().toLocalDate() +
+                ", end_date=" + end_date.toLocalDateTime().toLocalDate() +
                 ", free=" + free +
                 ", status=" + status +
                 ", has_tech=" + has_tech +
