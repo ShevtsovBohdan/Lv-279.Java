@@ -14,20 +14,20 @@ public class Academy {
 
     @ManyToOne
     @JoinColumn(name="city_id")
-    private City city_id;
+    private City city;
 
     @ManyToOne
     @JoinColumn(name = "direction_id")
-    private Directions directionsSet;
+    private Directions directions;
 
     @ManyToOne
     @JoinColumn(name = "technology_id")
-    private Technologies technologiesSet;
+    private Technologies technologies;
 
 
     @ManyToOne
     @JoinColumn(name = "stage_id")
-    private Academy_Stages academy_stagesSet;
+    private Academy_Stages academy_stages;
 
     @NotNull
     @Column(name = "crm_group")
@@ -79,36 +79,36 @@ public class Academy {
         this.academy_id = academy_id;
     }
 
-    public City getCity_id() {
-        return city_id;
+    public City getCity() {
+        return city;
     }
 
-    public void setCity_id(City city_id) {
-        this.city_id = city_id;
+    public void setCity(City city_id) {
+        this.city = city_id;
     }
 
-    public Directions getDirectionsSet() {
-        return directionsSet;
+    public Directions getDirections() {
+        return directions;
     }
 
-    public void setDirectionsSet(Directions directionsSet) {
-        this.directionsSet = directionsSet;
+    public void setDirections(Directions directionsSet) {
+        this.directions = directionsSet;
     }
 
-    public Technologies getTechnologiesSet() {
-        return technologiesSet;
+    public Technologies getTechnologies() {
+        return technologies;
     }
 
-    public void setTechnologiesSet(Technologies technologiesSet) {
-        this.technologiesSet = technologiesSet;
+    public void setTechnologies(Technologies technologiesSet) {
+        this.technologies = technologiesSet;
     }
 
-    public Academy_Stages getAcademy_stagesSet() {
-        return academy_stagesSet;
+    public Academy_Stages getAcademy_stages() {
+        return academy_stages;
     }
 
-    public void setAcademy_stagesSet(Academy_Stages academy_stagesSet) {
-        this.academy_stagesSet = academy_stagesSet;
+    public void setAcademy_stages(Academy_Stages academy_stagesSet) {
+        this.academy_stages = academy_stagesSet;
     }
 
     public int getCrm_group() {
@@ -195,10 +195,10 @@ public class Academy {
     public String toString() {
         return "Academy{" +
                 "academy_id=" + academy_id +
-                ", city_id=" + city_id.getCity_id() +
-                ", directionsSet=" + directionsSet.getName() +
-                ", technologiesSet=" + technologiesSet.getName() +
-                ", academy_stagesSet=" + academy_stagesSet.getName() +
+                ", city_id=" + city.getCity_id() +
+                ", directionsSet=" + directions.getName() +
+                ", technologiesSet=" + technologies.getName() +
+                ", academy_stagesSet=" + academy_stages.getName() +
                 ", crm_group=" + crm_group +
                 ", name='" + name + '\'' +
                 ", start_date=" + start_date.toLocalDateTime().toLocalDate() +
