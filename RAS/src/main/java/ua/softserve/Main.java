@@ -3,6 +3,7 @@ package ua.softserve;
 import ua.softserve.data.entity.Academy;
 import ua.softserve.repository.dao.AcademyDAO;
 import ua.softserve.repository.dao.impl.AcademyDAOImpl;
+import ua.softserve.util.encrypt.aes.Encryptor;
 
 import java.util.List;
 
@@ -14,5 +15,6 @@ public class Main {
 //        academies.forEach(System.out::println);
 
         System.out.println(academyDAO.getById((Integer) 1));
+
     }
 }
