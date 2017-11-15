@@ -10,16 +10,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ua.softserve.data.entity.Academy;
-import ua.softserve.service.Impl.AcademyServiceImpl;
+import ua.softserve.service.AcademyService;
 
 @RestController
 public class AcademyController {
     @Autowired
-    AcademyServiceImpl academyService;
+    AcademyService academyService;
+
+//    @RequestMapping(value = "/academy/{academyId}",method = RequestMethod.GET, produces = {"application/json"})
+//    public ResponseEntity<Academy> getAcademy(@PathVariable Integer academyId) {
+//        return new ResponseEntity<Academy>(academyService.getById(academyId), HttpStatus.OK);
+//    }
 
     @RequestMapping(value = "/academy/{academyId}",method = RequestMethod.GET, produces = {"application/json"})
-    public ResponseEntity<Academy> getUser(@PathVariable Integer academyId) {
-        return new ResponseEntity<Academy>(academyService.getById(academyId), HttpStatus.OK);
+    public String getAcademy(@PathVariable Integer academyId) {
+        return academyService.getById(academyId).toString();
     }
 }
 
