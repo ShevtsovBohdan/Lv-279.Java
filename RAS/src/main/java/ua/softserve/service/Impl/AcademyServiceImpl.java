@@ -7,6 +7,7 @@ import ua.softserve.data.entity.Academy;
 import ua.softserve.repository.dao.AcademyDAO;
 import ua.softserve.service.AcademyService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,6 +24,8 @@ public class AcademyServiceImpl implements AcademyService {
     @Transactional
     @Override
     public List<Academy> getAllAcademys() {
-        return academyDAO.getAllAcademys();
+        ArrayList<Academy> listAcademies;
+        listAcademies = (ArrayList<Academy>) academyDAO.getAllAcademys();
+        return listAcademies;
     }
 }
