@@ -1,6 +1,5 @@
 package ua.softserve.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +17,9 @@ public class AcademyController {
     @Autowired
     AcademyServiceImpl academyService;
 
-    @RequestMapping(value = "/user/{userId}",method = RequestMethod.GET, produces = {"application/json"})
-    public ResponseEntity<Academy> getUser(@PathVariable Integer userId) {
-        return new ResponseEntity<Academy>(academyService.getById(userId), HttpStatus.OK);
+    @RequestMapping(value = "/academy/{academyId}",method = RequestMethod.GET, produces = {"application/json"})
+    public ResponseEntity<Academy> getUser(@PathVariable Integer academyId) {
+        return new ResponseEntity<Academy>(academyService.getById(academyId), HttpStatus.OK);
     }
 }
 
